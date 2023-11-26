@@ -14,8 +14,7 @@ function Home() {
             setLolCharacters(data);
         };
         fetchCharacters();
-    }, [])
-    console.log(lolCharacters)
+    }, []);
 
     return (
         <div className="main">
@@ -42,6 +41,7 @@ function Home() {
                 <option value="8">8</option>
                 <option value="9">9</option>
             </select>
+
             <label htmlFor="defense">Select by defense</label>
             <select name="defense" id="defense">
                 <option value="All">All</option>
@@ -81,13 +81,14 @@ function Home() {
                 <option value="8">8</option>
                 <option value="9">9</option>
             </select>
+            <button className="login-register-btn">Log in</button>
             <div id="container">
                 {lolCharacters.map((character) => (
                     <div className="card-container">
-                        <img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${character.id}_0.jpg`} alt="${character.name}"/>
-                            <div class="character-name" >{character.id}</div>
-                            <div class="character-tag">{character.tags}</div>
-                            <div> {character.blurb}</div>
+                        <img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${character.id}_0.jpg`} alt="${character.name}" />
+                        <div class="character-name" >{character.id}</div>
+                        <div class="character-tag">{character.tags}</div>
+                        <div> {character.blurb}</div>
                     </div>
                 ))}
             </div>

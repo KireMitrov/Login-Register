@@ -20,6 +20,12 @@ input {
     height: 2.2em;
 }
 
+.login-register-btn {
+    position: relative;
+    right: 20;
+    top:10; 
+}
+
 img {
     width: 200px;
     height: 300px;
@@ -62,7 +68,7 @@ img {
     margin-top: 10px;
 }
 
-label {
+.main label {
     padding: 6px;
     font-size: 16px;
 }
