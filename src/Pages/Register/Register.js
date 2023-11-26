@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./register.css";
 
 
 function Register() {
+
+    const [visiblePass, setVisiblePass] = useState(true);
+  
+    function toggleVisiblePass () {
+        setVisiblePass(!visiblePass);
+    }
 
     return (
         <div className="register-main">
@@ -25,7 +31,8 @@ function Register() {
                         </div>
                         <div className="fieldset">
                             <label> * Password</label>
-                            <input type="password" name="password" id="password" />
+                            <input type={ visiblePass ?  "password" : "text"} name="password" id="password" />
+                            <i class={ visiblePass ? "bi bi-eye-slash" : "bi bi-eye"} onClick={toggleVisiblePass}></i>
                         </div>
                         <div className="pass-description">Password must have upper and lower case letters, at least 1 number, special character and be at least 8 characters  long.</div>
                         <button className="register-btn">Create account</button>
