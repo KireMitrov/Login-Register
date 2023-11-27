@@ -104,4 +104,5 @@ form i {
     color: #005dad;
     cursor: pointer;
     border-bottom: 1px dotted #005dad;
+    text-decoration: none;
 }

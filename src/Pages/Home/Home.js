@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./home.css"
 import axios from 'axios'
+import { AuthContext } from "../../context/authContext";
 
 function Home() {
 
+    const { setShowLogin } = useContext(AuthContext);
     const [lolCharacters, setLolCharacters] = useState([]);
     const url = 'http://ddragon.leagueoflegends.com/cdn/12.6.1/data/en_US/champion.json';
 
@@ -18,7 +20,13 @@ function Home() {
 
     return (
         <div className="main">
-            <h1>League Of Legends</h1>
+            <header>
+                <div className="header-row"><img className="logo" src="/lol-logo.png" alt="Lol-logo" /></div>
+                <div className="header-row">
+                    <h1 className="heading">League Of Legends</h1>
+                </div>
+                <div className="header-row"><button className="login-register-btn" onClick={() => setShowLogin(true)}>Sign in/Register</button></div>
+            </header>
             <input
                 type="search"
                 name="search"
@@ -81,7 +89,6 @@ function Home() {
                 <option value="8">8</option>
                 <option value="9">9</option>
             </select>
-            <button className="login-register-btn">Log in</button>
             <div id="container">
                 {lolCharacters.map((character) => (
                     <div className="card-container">
